@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Book Search</title>
+{% endblock %}
+{% block content %}
+<h1>Search Books</h1>
+
+<form method="get" action="{% url 'book_search' %}">
+    <input type="text" name="q" value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+
+{% if query %}
+<h2>Results for "{{ query }}" </h2>
+<ul>
+    {% for book in books %}
+    <li>
+        <a href="{% url 'book' id=book.id %}">{{ book.title }}</a>
+        ({{ book.year }})
+    </li>
+    {% empty %}
+        <li>No books found matching "{{ query }}"</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

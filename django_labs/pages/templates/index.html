@@ -1,0 +1,13 @@
+<!-- index.html -->
+{% extends 'base.html' %}
+<html>
+    <head>
+        <title>My First Django Site</title>
+    </head>
+    <body>
+        {% block content %}
+        <p>Hello {{ username }}</p>
+        <p>To contact with us <a href='contact'>Click here!</a></p>
+    {% endblock %}
+    </body>
+</html>
