@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Books in {{ year }}</title>
+{% endblock %}
+{% block content %}
+    {% for book in books %}
+    <h3><a href="{% url 'book' id=book.id %}">{{ book.title }}</a></h3>
+    <p>Author: {{ book.author }}</p>
+    <p>Date Published: {{ book.year }}</p>
+        {% empty %}
+        <p>No books found in year {{ year }}</p>
+    {% endfor %}
+{% endblock %}

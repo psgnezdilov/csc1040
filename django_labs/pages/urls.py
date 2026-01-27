@@ -7,4 +7,6 @@ urlpatterns = [
     path("books", views.library, name="all_books"),
     path("books/search", views.book_search, name="book_search"),
     path("books/<int:id>/", views.book, name="book"),
+    path("books/year/<int:year>/", views.books_year, name="books_year"),
+    path("books/category/<str:category>/year/<int:year>/", views.books_category_year, name="book_category_year"),
 ]

@@ -29,3 +29,11 @@ def book_search(request):
         books = Book.objects.none()
 
     return render(request, 'book_search.html', {'books': books, 'query': query})
+
+def books_year(request, year):
+    books = Book.objects.filter(year__icontains=year)
+    return render(request, 'books_year.html', {'books': books, 'year': year})
+
+def books_category_year(request, year, category):
+    books = Book.objects.filter(year__icontains=year, category=category)
+    return render(request, 'books.html', {'all_books': books})
