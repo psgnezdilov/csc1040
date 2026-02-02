@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Author(models.Model):
@@ -15,6 +16,7 @@ class Book(models.Model):
     title = models.TextField(max_length=100)
     synopsis = models.TextField(max_length=500)
     category = models.CharField(max_length=40, default="horror")
+    added_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     def __str__(self):
         return self.title
 

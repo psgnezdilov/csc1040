@@ -16,6 +16,16 @@
         <div><a href="{% url 'home' %}">Homepage</a></div>
         <div><a href="{% url 'all_books' %}">All books</a></div>
         <div><a href="{% url 'contact' %}">Contact Us</a></div>
+        {% if user.is_authenticated %}
+        <span>Hello, {{ user.username }}!</span>
+        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+            {% else %}
+            <a href="{% url 'login' %}">Log In</a>
+            <a href="{% url 'register' %}">Register</a>
+        {% endif %}
     </nav>
     <main>
         {% block content %}
