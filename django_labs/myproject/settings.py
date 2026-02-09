@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # Third-party apps
+    "rest_framework",
+    "drf_spectacular",
+
     "pages",
 ]
 
@@ -119,3 +124,15 @@ STATIC_URL = "static/"
 LOGIN_REDIRECT_URL = 'all_books'
 LOGOUT_REDIRECT_URL = 'all_books'
 LOGIN_URL = 'login'
+
+REST_FRAMEWORK = {
+    # Use drf-spectacular for schema generation
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Bookshop API',
+    'DESCRIPTION': 'API for managing books and authors in our bookshop',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SHEMA': False,
+}

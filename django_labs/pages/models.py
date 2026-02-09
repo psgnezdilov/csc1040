@@ -19,4 +19,3 @@ class Book(models.Model):
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     def __str__(self):
         return self.title
-
